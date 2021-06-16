@@ -4,7 +4,7 @@ import axios from 'axios'
 function WeatherCard() {
 
   const [weather, setWeather] = useState(null)
-  const [unixTime, setUnixTime] = useState(null)
+  const [unixTime, setUnixTime] = useState('')
 
 
   // Spent time tracing a bug here. needed to add https:// - starting at api was working in insomnia
@@ -14,7 +14,8 @@ function WeatherCard() {
       console.log(data)
       console.log(data.list[0])
       setWeather(data.list[0])
-      setUnixTime(weather.dt)
+      setUnixTime(data.list[0].dt)
+
 
     } catch (err) {
       console.log(err)
@@ -22,10 +23,13 @@ function WeatherCard() {
   }
 
   useEffect(() => {
+
     getData()
+
   }, [])
 
 
+  console.log('UNIXTIME', unixTime)
 
   console.log('WEATHER', weather)
   const unixDate = new Date(unixTime * 1000)

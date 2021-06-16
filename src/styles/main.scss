@@ -1,0 +1,22 @@
+.hero {
+  // background-image: url(../assets/hero-image.jpg);
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../assets/hero-image.jpg); 
+  background-size: cover;
+}
+
+
+.navbar {
+background-color: #005c99;
+  .navbar-item {
+  color: #fff;
+  }
+}
+
+a {
+  padding: 0;
+  text-decoration: none;
+  color: #fff;
+  &:hover {
+    color: darken( #fff,  50%) 
+  }
+}
