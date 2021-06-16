@@ -15,7 +15,7 @@ function WeatherCard() {
       console.log(data.list[0])
       setWeather(data.list[0])
       setUnixTime(data.list[0].dt)
-
+      // had a bit of trouble getting this to update properly. I was initially using weather.dt to set this to state but the system delay in setting the correct thing to state meant that weather didn't have anything on state and therefore threw an error saying that it couldn't access .dt of undefined. Eventually clicked to grab it from the source instead of waiting for something to update then get it from there.
 
     } catch (err) {
       console.log(err)
