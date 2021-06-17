@@ -22,7 +22,7 @@ const Navbar = () => {
       <div className="container">
 
         <div className="navbar-brand is-align-items-center">
-          <Link to="/">⟰</Link>
+          <Link to="/">⛅️</Link>
         </div>
 
         <div className="navbar-start">

@@ -12,9 +12,9 @@ function Home() {
       <div className="hero-body">
 
         <div className="container">
-          <h1 className="title is-1 has-text-centered has-text-light">Weather App</h1>
+          <h1 className="title is-1 has-text-centered has-text-light">World Weather App</h1>
         </div>
-        
+
       </div>
 
     </section>
