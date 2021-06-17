@@ -14,7 +14,9 @@ const WeatherCard = () => {
 
   const [unixTime, setUnixTime] = useState('')
 
-  const [errorMessage, setErrorMessage] = useState('')
+  // const [errorMessage, setErrorMessage] = useState('')
+
+  const [hasError, setHasError] = useState(false)
 
   let imageLink = ''
 
@@ -47,6 +49,7 @@ const WeatherCard = () => {
       } catch (err) {
         console.log('ERR', err)
         console.log('THIS IS CATCH')
+        setHasError(true)
         // setErrorMessage(err.response.data.errors)
       }
     }
@@ -112,10 +115,11 @@ const WeatherCard = () => {
             <div className="card">
               <>
                 {!weather ?
-                  <>
-                    <h2>It looks like we do not have records for that place, try again.</h2>
-                  </>
 
+                  <Link to="/search"><h2 className=" has-text-centered">
+                    {hasError ? 'Oops, it looks like we do not have records for that city. Please search again' : 'Loading...'}
+                  </h2>
+                  </Link>
                   :
 
 
@@ -154,7 +158,7 @@ const WeatherCard = () => {
           </div>
         </div>
       </div>
-    </section>
+    </section >
 
   )
 

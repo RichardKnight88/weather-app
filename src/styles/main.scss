@@ -1,7 +1,7 @@
 .hero {
-  // background-image: url(../assets/hero-image.jpg);
   background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../assets/hero-image.jpg); 
   background-size: cover;
+  align-items: center;
 }
 
 
@@ -10,6 +10,10 @@
   .navbar-item {
   color: #fff;
   }
+}
+
+.navbar-end {
+  align-items: center;
 }
 
 a {
@@ -46,7 +50,8 @@ a {
   border: none;
   border-radius: 8px;
   width: 50vw;
-  height: 10vh;
+  height: 15vh;
+  align-items: center;
 }
 
 .register {

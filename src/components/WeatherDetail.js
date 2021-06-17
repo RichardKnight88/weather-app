@@ -7,6 +7,9 @@ const WeatherDetail = () => {
 
   const [weather, setWeather] = useState(null)
 
+  const [hasError, setHasError] = useState(false)
+
+
   const { id } = useParams()
 
   let windDirection = ''
@@ -26,6 +29,7 @@ const WeatherDetail = () => {
       } catch (err) {
         console.log('ERR', err)
         console.log('THIS IS CATCH')
+        setHasError(true)
         // setErrorMessage(err.response.data.errors)
       }
     }
@@ -67,9 +71,9 @@ const WeatherDetail = () => {
 
       {!weather ?
 
-        <>
-          <h2>It looks like we do not have records for that place, try again.</h2>
-        </>
+        <h2 className=" has-text-centered">
+          {hasError ? 'Oops, it looks like we do not have records for that city. Please search again' : 'Loading...'}
+        </h2>
 
         :
 
@@ -77,7 +81,7 @@ const WeatherDetail = () => {
 
           <div className="container detailedPage">
 
-            <WeatherCard className="is-fullwidth"/>
+            <WeatherCard className="is-fullwidth" />
 
             <>
               <section className="section detailHalf">
@@ -109,7 +113,7 @@ const WeatherDetail = () => {
 
                             <div className="card-content">
                               <>
-                                <div className="card-header-title is-2">WindeSpeed</div>
+                                <div className="card-header-title is-2">Wind Speed</div>
                                 <h2>{weather.wind.speed} m/s</h2>
                                 <h2>Direction: {windDirection}</h2>
                               </>
