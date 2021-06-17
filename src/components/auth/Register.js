@@ -3,9 +3,13 @@ import { useHistory } from 'react-router-dom'
 
 
 const Register = () => {
+
   const [userNameData, setUserNameData] = useState('')
 
+  const [loginError, setLoginError] = useState('')
+
   const history = useHistory()
+
 
 
   const handleChange = (event) => {
@@ -20,7 +24,6 @@ const Register = () => {
     event.preventDefault()
     setUserNameToLocalStorage()
     console.log('Submit works')
-    history.push('/search')
   }
 
   const setUserNameToLocalStorage = () => {
@@ -29,13 +32,17 @@ const Register = () => {
       const userNameFromLocalStorage = (window.localStorage.getItem('userNameData'))
 
       if (window.localStorage.getItem('userNameData') === userNameData) {
-        window.alert('LOGS IN')
+        // window.alert('LOGS IN')
+        history.push('/search')
+
       } else {
-        window.alert(`It looks like this is the wrong username, try ${userNameFromLocalStorage}`)
+        setLoginError(`It looks like this is the wrong username, try ${userNameFromLocalStorage}`)
       }
     } else {
-      window.alert('REGISTERED')
+      // window.alert('REGISTERED')
       window.localStorage.setItem('userNameData', userNameData)
+      history.push('/search')
+
     }
   }
 
@@ -45,6 +52,7 @@ const Register = () => {
   }, [])
 
 
+  console.log('LOGIN ERROR', loginError)
 
 
   // const remove = () => {
@@ -75,10 +83,12 @@ const Register = () => {
                 />
               </div>
 
+              {loginError && <p className="help is-danger subtitle is-6">{loginError}</p>}
+
             </div>
             <div className="field">
               <button type="submit" className="button  is-fullwidth">
-                Register/Login
+                Register / Login
               </button>
             </div>
           </form>

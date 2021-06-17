@@ -116,8 +116,8 @@ const WeatherCard = () => {
               <>
                 {!weather ?
 
-                  <Link to="/search"><h2 className=" has-text-centered">
-                    {hasError ? 'Oops, it looks like we do not have records for that city. Please search again' : 'Loading...'}
+                  <Link to="/search"><h2 className=" has-text-centered errorBlock">
+                    {hasError ? 'Oops, it looks like we do not have records for that city. Please click here to search again' : 'Loading...'}
                   </h2>
                   </Link>
                   :
