@@ -4,7 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import WeatherCard from './components/WeatherCard'
-
+import Register from './components/auth/Register'
 
 function App() {
 
@@ -17,6 +17,10 @@ function App() {
       <Navbar />
 
       <Switch>
+
+        <Route path="/register">
+          <Register />
+        </Route>
 
         <Route path="/weather">
           <WeatherCard />
