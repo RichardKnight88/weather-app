@@ -11,7 +11,6 @@ const Searchbar = () => {
 
 
 
-
   const handleChange = (event) => {
     const newSearchTerm = event.target.value
     setSearchTerm(newSearchTerm)

@@ -8,29 +8,41 @@ function WeatherCard() {
 
   const [unixTime, setUnixTime] = useState('')
 
+  const [errorMessage, setErrorMessage] = useState('')
+
+
   const { id } = useParams()
 
 
 
-  const getData = async () => {
-    try {
-      const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=${id}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
-      console.log(data)
-      console.log(data.list[0])
-      setWeather(data.list[0])
-      setUnixTime(data.list[0].dt)
-
-    } catch (err) {
-      console.log(err)
-    }
-  }
-
-
   useEffect(() => {
+
+    const getData = async () => {
+      try {
+        const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=${id}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
+
+        console.log(data)
+        console.log(data.list[0])
+        setWeather(data.list[0])
+        // if (!weather){
+        //   console.log('inside if')
+        //   window.alert('mae there is not such a city try again')
+        // } else {
+        setUnixTime(data.list[0].dt)
+        // }
+
+
+      } catch (err) {
+        console.log('ERR', err)
+        console.log('THIS IS CATCH')
+        setErrorMessage(err.response.data.errors)
+      }
+    }
+
 
     getData()
 
-  }, [])
+  }, [id])
 
 
   console.log('UNIXTIME', unixTime)
@@ -51,8 +63,9 @@ function WeatherCard() {
       <div className="container">
         <>
           {!weather ?
-
-            <h2>Loading...</h2>
+            <>
+              <h2>It looks like we don't have records for that place, try again.</h2>
+            </>
 
             :
 
