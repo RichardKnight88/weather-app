@@ -30,15 +30,15 @@ const Searchbar = () => {
 
   return (
 
-    <section className="section">
+    <section className="section hero is-fullheight-with-navbar searchPage">
 
-      <div className="container">
+      <div className="container is-fullwidth is-flex is-align-items-center">
 
-        <div className="columns">
+        <div className="columns searchBackground">
 
           <form
             onSubmit={handleSubmit}
-            className="column is-half is-offset-one-quarter">
+            className="column is-fullwidth">
 
             <div className="field">
 
@@ -48,7 +48,7 @@ const Searchbar = () => {
                 <input
                   onChange={handleChange}
                   value={searchTerm}
-                  className="input"
+                  className="input is-flex-grow-5"
                   placeholder="Enter a city"
                   name="search"
                 />

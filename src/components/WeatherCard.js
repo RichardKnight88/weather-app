@@ -18,6 +18,8 @@ const WeatherCard = () => {
 
   let imageLink = ''
 
+  let weatherStatus = ''
+
 
   const { id } = useParams()
 
@@ -72,6 +74,7 @@ const WeatherCard = () => {
 
   const logic = () => {
     if (weather) {
+      weatherStatus = weather.weather[0].main
       if (weather.weather[0].main === 'Clouds') {
         imageLink = Clouds
       }
@@ -102,7 +105,7 @@ const WeatherCard = () => {
 
   return (
 
-    <section className="section">
+    <section className={`section hero is-fullheight-with-navbar ${weatherStatus}`}>
       <div className="container">
         <div className="columns">
           <div className="column is-one-third">
@@ -118,31 +121,6 @@ const WeatherCard = () => {
 
 
                   <>
-
-                    <div className="hidden">
-                      <>
-                        {
-                          console.log('sarandis')
-
-
-
-                        }
-                      </>
-
-
-
-                      {/* {imageLink = imageArray.filter((item, name) => {
-
-                        console.log('IMAGE ARRAY', imageArray)
-                        console.log('WEATHER DESCRIPTION', weather.weather[0].main)
-                        return (
-                          console.log('ITEM', item.value),
-                          item.name === weather.weather[0].main,
-                          console.log('IMAGE LINK', imageLink)
-
-                        )
-                      })} */}
-                    </div>
 
                     <Link to={`/${id}/detail`}>
                       <div className="card-header">
@@ -168,6 +146,7 @@ const WeatherCard = () => {
                         <h2>{Math.round(weather.main.temp)}ºC</h2>
                       </div>
                     </Link>
+
                   </>
                 }
               </>

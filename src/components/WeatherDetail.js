@@ -64,7 +64,9 @@ const WeatherDetail = () => {
 
   return (
     <>
+
       {!weather ?
+
         <>
           <h2>It looks like we do not have records for that place, try again.</h2>
         </>
@@ -73,24 +75,57 @@ const WeatherDetail = () => {
 
         <>
 
-          <h1>DETAILS</h1>
-          <WeatherCard />
+          <div className="container detailedPage">
 
+            <WeatherCard className="is-fullwidth"/>
 
-          <h2>Description: {weather.weather[0].description}</h2>
-          <h2>Feels Like: {weather.main.feels_like}ºC</h2>
-          <h2>Min Temp: {weather.main.temp_min}ºC</h2>
-          <h2>Max Temp: {weather.main.temp_max}ºC</h2>
-          <h2>Humidity: {weather.main.humidity}%</h2>
+            <>
+              <section className="section detailHalf">
+                <div className="container">
+                  <div className="columns">
+                    <div className="column is-fullwidth">
+                      <div className="card">
+                        <>
+                          <div className="card-header">
+                            <div className="card-header-title">Detailed Information</div>
+                          </div>
+                          <>
+                            <div className="card-content">
+                              <>
+                                <div className="card-header-title is-2">Condtions</div>
+                                <h2>{weather.weather[0].description}</h2>
+                              </>
+                            </div>
 
+                            <div className="card-content">
+                              <>
+                                <div className="card-header-title is-2">Temperature</div>
+                                <h2>Feels Like: {weather.main.feels_like}ºC</h2>
+                                <h2>Min Temp: {weather.main.temp_min}ºC</h2>
+                                <h2>Max Temp: {weather.main.temp_max}ºC</h2>
+                                <h2>Humidity: {weather.main.humidity}%</h2>
+                              </>
+                            </div>
 
-          <h2>Wind Speed: {weather.wind.speed} m/s</h2>
-
-          <h2>Direction: {windDirection}</h2>
-
-
+                            <div className="card-content">
+                              <>
+                                <div className="card-header-title is-2">WindeSpeed</div>
+                                <h2>{weather.wind.speed} m/s</h2>
+                                <h2>Direction: {windDirection}</h2>
+                              </>
+                            </div>
+                          </>
+                        </>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </>
+          </div>
         </>
       }
+
     </>
   )
 

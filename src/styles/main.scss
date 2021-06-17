@@ -6,7 +6,7 @@
 
 
 .navbar {
-background-color: #005c99;
+  background-color: #005c99;
   .navbar-item {
   color: #fff;
   }
@@ -30,3 +30,68 @@ a {
     color: black;
   }
 }
+
+.detailedPage {
+  display: flex;
+
+}
+
+.detailedHalf {
+  flex-grow: 1;
+
+}
+
+.searchBackground {
+  background: linear-gradient( rgba(250, 250, 250, 0.6), rgba(250, 250, 250, 0.3));
+  border: none;
+  border-radius: 8px;
+  width: 50vw;
+  height: 10vh;
+}
+
+.register {
+  height: 20vh;
+  justify-content: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 20vh;
+  background: none;
+  justify-content: center;
+}
+
+.button {
+  background-color: #005c99;
+  border: none;
+  color: #fff;
+  &:hover {
+    background-color: lighten( #005c99,  5%);
+    color: #fff;
+    font-weight: bold;
+    filter: drop-shadow(1px 1px 2px #003d66);
+
+  }
+}
+
+.searchPage, .Clear {
+  background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../assets/Clear.jpg);
+  background-size: cover;
+}
+
+.Rain {
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/rainy.jpg);
+  background-size: cover;
+}
+
+.Clouds {
+  background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/cloudy.jpg);
+  background-size: cover;
+}
+
+.Snow {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../assets/snowy.jpg);
+  background-size: cover;
+}
+

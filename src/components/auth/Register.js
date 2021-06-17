@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 
 const Register = () => {
   const [userNameData, setUserNameData] = useState('')
+
   const history = useHistory()
 
 
@@ -53,14 +54,14 @@ const Register = () => {
   // remove()
 
   return (
-    <section className="section">
+    <section className="section hero is-fullheight-with-navbar searchPage">
 
       <div className="container">
 
-        <div className="columns">
+        <div className="columns searchBackground register">
           <form
             onSubmit={handleSubmit}
-            className="column is-half is-offset-one-quarter box">
+            className="column is-three-quarters form">
 
             <div className="field">
               <label className="label" >Name</label>
@@ -77,7 +78,7 @@ const Register = () => {
             </div>
             <div className="field">
               <button type="submit" className="button  is-fullwidth">
-                submit
+                Register/Login
               </button>
             </div>
           </form>

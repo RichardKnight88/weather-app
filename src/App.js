@@ -29,10 +29,6 @@ function App() {
           <Searchbar />
         </Route>
 
-        <Route excact path="/login">
-          <Login />
-        </Route>
-
         <Route path="/register">
           <Register />
         </Route>
