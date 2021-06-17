@@ -10,7 +10,7 @@ function WeatherCard() {
   // Spent time tracing a bug here. needed to add https:// - starting at api was working in insomnia
   const getData = async () => {
     try {
-      const { data } = await axios.get('http://api.openweathermap.org/data/2.5/find?q=London&units=metric&appid=7932aace045025bbbe0fdf9c05f92029')
+      const { data } = await axios.get('http://api.openweathermap.org/data/2.5/find?q=London&units=metric&appid=7a6b15eb3b34e8539da086e7593a3eee')
       console.log(data)
       console.log(data.list[0])
       setWeather(data.list[0])
