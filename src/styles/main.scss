@@ -94,6 +94,19 @@ a {
   }
 }
 
+.button.logoutButton {
+  border: none;
+  background-color: #005c99;
+  &:hover {
+    text-decoration: underline;
+    background-color: #005c99;
+    color: #ccc;
+    box-shadow: none;
+    filter: drop-shadow(none);
+
+  }
+}
+
 .searchPage, .Clear {
   background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../assets/Clear.jpg);
   background-size: cover;
