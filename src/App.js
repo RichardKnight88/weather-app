@@ -7,6 +7,7 @@ import Register from './components/auth/Register'
 import WeatherCard from './components/WeatherCard'
 import Searchbar from './components/Searchbar'
 import WeatherDetail from './components/WeatherDetail'
+import Favourites from './components/Favourites'
 
 function App() {
 
@@ -22,6 +23,10 @@ function App() {
 
         <Route path="/:id/detail">
           <WeatherDetail />
+        </Route>
+
+        <Route excact path="/favourites">
+          <Favourites />
         </Route>
 
         <Route excact path="/search">
