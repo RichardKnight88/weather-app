@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import Clouds from '../assets/hero-image.jpg'
-import Clear from '../assets/Clear.jpg'
+import Clouds from '../assets/Clouds.png'
+import Rain from '../assets/Rain.png'
+import Snow from '../assets/Snow.png'
+import Storm from '../assets/Storm.png'
+import ClearDay from '../assets/Clear-day.png'
+import ClearNight from '../assets/Clear-night.png'
 
-function WeatherCard() {
+const WeatherCard = () => {
 
   const [weather, setWeather] = useState(null)
 
@@ -12,12 +16,12 @@ function WeatherCard() {
 
   const [errorMessage, setErrorMessage] = useState('')
 
-  let imageLink
+  let imageLink = ''
 
 
   const { id } = useParams()
 
-  const imageArray = [{ 'Clouds': Clouds }, { 'Clear': Clear }]
+  // const imageArray = [{ 'Clouds': Clouds }, { 'Clear': Clear }]
 
   // const { Clouds: Clouds}
 
@@ -66,15 +70,32 @@ function WeatherCard() {
   console.log(unixDate.toDateString())
   console.log(unixDate.toLocaleTimeString([], { timeStyle: 'short' }))
 
-  function logic() {
-    if (weather && weather.weather[0].main === 'Clouds') {
-      imageLink = Clouds
+  const logic = () => {
+    if (weather) {
+      if (weather.weather[0].main === 'Clouds') {
+        imageLink = Clouds
+      }
+      if (weather.weather[0].main === 'Rain') {
+        imageLink = Rain
+      }
+      if (weather.weather[0].main === 'Clear') {
+        if (parseInt(time) < 16 && parseInt(time) > 6) {
+          imageLink = ClearDay
+        } else {
+          imageLink = ClearNight
+        }
+      }
+      if (weather.weather[0].main === 'Snow') {
+        imageLink = Snow
+      }
+      if (weather.weather[0].main === 'Storm') {
+        imageLink = Storm
+      }
+      return imageLink
     }
-    if (weather && weather.weather[0].main === 'Clear') {
-      imageLink = Clear
-    }
-    return imageLink
   }
+
+  console.log('TIME', parseInt(time))
 
   console.log(typeof (logic()))
 
