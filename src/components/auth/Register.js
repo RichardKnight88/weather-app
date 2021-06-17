@@ -1,16 +1,56 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 
 const Register = () => {
-  const [userNameData, setUserNameData] = useState({ name: '' })
+  const [userNameData, setUserNameData] = useState('')
+  const history = useHistory()
+
 
   const handleChange = (event) => {
-    const newUserNameData = { ...userNameData, name: event.target.value }
+    const newUserNameData = event.target.value
     // console.log(event.target.name)
     setUserNameData(newUserNameData)
   }
-  console.log(userNameData)
 
+  console.log('USERNAME DATA', userNameData)
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    setUserNameToLocalStorage()
+    console.log('Submit works')
+    history.push('/')
+  }
+
+  const setUserNameToLocalStorage = () => {
+    if (window.localStorage.getItem('userNameData')) {
+
+      const userNameFromLocalStorage = (window.localStorage.getItem('userNameData'))
+
+      if (window.localStorage.getItem('userNameData') === userNameData) {
+        window.alert('LOGS IN')
+      } else {
+        window.alert(`It looks like this is the wrong username, try ${userNameFromLocalStorage}`)
+      }
+    } else {
+      window.alert('REGISTERED')
+      window.localStorage.setItem('userNameData', userNameData)
+    }
+  }
+
+  useEffect(() => {
+    
+    
+  }, [])
+
+
+
+
+  // const remove = () => {
+  //   window.localStorage.removeItem('userNameData')
+  // }
+
+  // remove()
 
   return (
     <section className="section">
@@ -19,6 +59,7 @@ const Register = () => {
 
         <div className="columns">
           <form
+            onSubmit={handleSubmit}
             className="column is-half is-offset-one-quarter box">
 
             <div className="field">
