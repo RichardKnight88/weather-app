@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 function WeatherCard() {
 
   const [weather, setWeather] = useState(null)
+
   const [unixTime, setUnixTime] = useState('')
+
+  const { id } = useParams()
+
 
 
   const getData = async () => {
     try {
-      const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=London&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
+      const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=${id}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
       console.log(data)
       console.log(data.list[0])
       setWeather(data.list[0])

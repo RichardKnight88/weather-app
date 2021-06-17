@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 
 
@@ -6,12 +7,27 @@ const Searchbar = () => {
 
   const [searchTerm, setSearchTerm] = useState('')
 
+  const history = useHistory()
+
+
+
+
   const handleChange = (event) => {
     const newSearchTerm = event.target.value
     setSearchTerm(newSearchTerm)
   }
 
   console.log(searchTerm)
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    console.log('Search submit works')
+    history.push(`/${searchTerm}`)
+  }
+
+  // console.log(id)
+
 
   return (
 
@@ -22,7 +38,7 @@ const Searchbar = () => {
         <div className="columns">
 
           <form
-            // onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             className="column is-half is-offset-one-quarter">
 
             <div className="field">

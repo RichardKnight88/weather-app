@@ -32,7 +32,7 @@ function App() {
           <Register />
         </Route>
 
-        <Route path="/weather">
+        <Route path="/:id">
           <WeatherCard />
         </Route>
 
