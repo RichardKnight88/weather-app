@@ -9,7 +9,7 @@ function WeatherCard() {
 
   const getData = async () => {
     try {
-      const { data } = await axios.get('http://api.openweathermap.org/data/2.5/find?q=London&units=metric&appid=7a6b15eb3b34e8539da086e7593a3eee')
+      const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=London&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
       console.log(data)
       console.log(data.list[0])
       setWeather(data.list[0])
@@ -19,6 +19,7 @@ function WeatherCard() {
       console.log(err)
     }
   }
+
 
   useEffect(() => {
 
