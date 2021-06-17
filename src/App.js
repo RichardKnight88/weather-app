@@ -3,9 +3,10 @@ import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
-import WeatherCard from './components/WeatherCard'
 import Register from './components/auth/Register'
 import Login from './components/auth/Login'
+import WeatherCard from './components/WeatherCard'
+import Searchbar from './components/Searchbar'
 
 function App() {
 
@@ -18,6 +19,10 @@ function App() {
       <Navbar />
 
       <Switch>
+
+        <Route excact path="/search">
+          <Searchbar />
+        </Route>
 
         <Route excact path="/login">
           <Login />

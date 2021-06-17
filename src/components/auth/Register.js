@@ -19,7 +19,7 @@ const Register = () => {
     event.preventDefault()
     setUserNameToLocalStorage()
     console.log('Submit works')
-    history.push('/')
+    history.push('/search')
   }
 
   const setUserNameToLocalStorage = () => {
