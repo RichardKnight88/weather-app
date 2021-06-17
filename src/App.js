@@ -7,6 +7,7 @@ import Register from './components/auth/Register'
 import Login from './components/auth/Login'
 import WeatherCard from './components/WeatherCard'
 import Searchbar from './components/Searchbar'
+import WeatherDetail from './components/WeatherDetail'
 
 function App() {
 
@@ -19,6 +20,10 @@ function App() {
       <Navbar />
 
       <Switch>
+
+        <Route path="/:id/detail">
+          <WeatherDetail />
+        </Route>
 
         <Route excact path="/search">
           <Searchbar />

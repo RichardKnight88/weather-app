@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import axios from 'axios'
 import Clouds from '../assets/Clouds.png'
 import Rain from '../assets/Rain.png'
@@ -144,25 +144,30 @@ const WeatherCard = () => {
                       })} */}
                     </div>
 
-                    <div className="card-header">
-                      <div className="card-header-title">
-                        {weather.name}</div>
-                    </div>
+                    <Link to={`/${id}/detail`}>
+                      <div className="card-header">
+                        <div className="card-header-title">
+                          {weather.name}</div>
+                      </div>
 
-                    <div className="card-content">
-                      <h2>{date} {time}</h2>
-                    </div>
+                      <div className="card-content">
+                        <h2>{date} {time}</h2>
+                      </div>
 
-                    <div className="card-image">
-                      <figure className="image">
-                        <img src={imageLink} alt="test" />
-                      </figure>
-                    </div>
+                      <div className="card-image">
+                        <figure className="image">
+                          <img src={imageLink} alt="test" />
+                        </figure>
+                      </div>
 
-                    <div className="card-content">
-                      <h2>{Math.round(weather.main.temp)}ºC</h2>
-                    </div>
+                      <div className="card-content">
+                        <h2>{weather.weather[0].main}</h2>
+                      </div>
 
+                      <div className="card-content">
+                        <h2>{Math.round(weather.main.temp)}ºC</h2>
+                      </div>
+                    </Link>
                   </>
                 }
               </>
