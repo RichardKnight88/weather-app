@@ -115,6 +115,21 @@ a {
   }
 }
 
+.favouritesBlock {
+  min-width: 40vw;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  background: linear-gradient( rgba(0, 92, 153, 0.6), rgba(0, 92, 153, 0.6));
+  border-radius: 10px;
+  h2 {
+    color:#fff;
+    padding: 3vw;
+    font-weight: bold;
+  }
+
+}
+
 .Clear {
   background: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), url(../assets/Clear.jpg);
   background-size: cover;
