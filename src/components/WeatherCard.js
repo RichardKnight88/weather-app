@@ -131,7 +131,7 @@ const WeatherCard = ({ id, name, main, dt, weather, sys }) => {
 
         <div className=" column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
 
-          <Link to={`/${id}/detail`}>
+          <Link to={`/${weblinkId}/${id}`}>
             <div className="card">
 
 
@@ -145,7 +145,7 @@ const WeatherCard = ({ id, name, main, dt, weather, sys }) => {
               </div>
 
               <div className="card-image">
-                <figure className="image">
+                <figure className="image is-1by1">
                   <img src={imageLink} alt={imageLink} />
                 </figure>
               </div>

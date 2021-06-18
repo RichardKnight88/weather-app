@@ -64,6 +64,7 @@ const CityIndex = () => {
       <div className="container">
         {weather.length > 0 ?
           <div className="columns is-multiline">
+            {/* {console.log('TYPE OF WEATHER', typeof(weather))} */}
             {weather.map(city => {
               return (
                 <WeatherCard key={city.id} {...city} />

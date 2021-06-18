@@ -22,7 +22,7 @@ function App() {
 
       <Switch>
 
-        <Route path="/:id/detail">
+        <Route path="/:id/:weblinkId">
           <WeatherDetail />
         </Route>
 
