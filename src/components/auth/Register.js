@@ -32,14 +32,12 @@ const Register = () => {
       const userNameFromLocalStorage = (window.localStorage.getItem('userNameData'))
 
       if (window.localStorage.getItem('userNameData') === userNameData) {
-        // window.alert('LOGS IN')
         history.push('/search')
 
       } else {
         setLoginError(`It looks like this is the wrong username, try ${userNameFromLocalStorage}`)
       }
     } else {
-      // window.alert('REGISTERED')
       window.localStorage.setItem('userNameData', userNameData)
       history.push('/search')
 
@@ -52,27 +50,24 @@ const Register = () => {
   }, [])
 
 
-  console.log('LOGIN ERROR', loginError)
-
-
-  // const remove = () => {
-  //   window.localStorage.removeItem('userNameData')
-  // }
-
-  // remove()
 
   return (
+
+
     <section className="section hero is-fullheight-with-navbar searchPage">
 
       <div className="container">
 
         <div className="columns searchBackground register">
+
           <form
             onSubmit={handleSubmit}
             className="column is-three-quarters form">
 
             <div className="field">
+
               <label className="label" >Name</label>
+
               <div className="control">
                 <input
                   onChange={handleChange}
@@ -83,17 +78,25 @@ const Register = () => {
                 />
               </div>
 
+
               {loginError && <p className="help is-danger subtitle is-6">{loginError}</p>}
 
             </div>
+
             <div className="field">
+
               <button type="submit" className="button  is-fullwidth">
                 Register / Login
               </button>
+
             </div>
+
           </form>
+
         </div>
+
       </div>
+      
     </section>
   )
 }

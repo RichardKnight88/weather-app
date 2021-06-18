@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 
-
 const Searchbar = () => {
 
   const [searchTerm, setSearchTerm] = useState('')
@@ -10,18 +9,16 @@ const Searchbar = () => {
   const history = useHistory()
 
 
-
   const handleChange = (event) => {
     const newSearchTerm = event.target.value
     setSearchTerm(newSearchTerm)
   }
 
-  console.log(searchTerm)
-
+  // console.log(searchTerm)
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('Search submit works')
+    // console.log('Search submit works')
     history.push(`/${searchTerm}`)
   }
 

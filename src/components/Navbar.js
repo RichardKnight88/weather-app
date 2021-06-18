@@ -25,6 +25,7 @@ const Navbar = () => {
           <Link to="/">⛅️</Link>
         </div>
 
+
         <div className="navbar-start">
 
           <div className="navbar-item">
@@ -32,26 +33,37 @@ const Navbar = () => {
           </div>
 
           {window.localStorage.getItem('userNameData') &&
+
             <div className="navbar-item">
               <Link to="/favourites">Favourites</Link>
             </div>
+
           }
+
         </div>
+
 
         <div className="navbar-end">
 
           <>
+
             <div className="navbar-item">
+
               {window.localStorage.getItem('userNameData') ?
 
                 <div
                   className="button logoutButton"
                   onClick={handleLogout}
-                >Log out</div>
+                >Log out
+                </div>
+
                 :
+                
                 <Link to="/register">Register / Login</Link>
               }
+
             </div>
+
           </>
 
         </div>
