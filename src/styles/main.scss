@@ -58,8 +58,21 @@ a {
 }
 
 .detailedPage {
-  display: flex;
-
+  .columns {
+    min-width: 30vw;
+  }
+  min-height: 50vh;
+  max-height: 80vh;
+  .card-header-title {
+    justify-content: center;
+  }
+  .card-content {
+    justify-content: center;
+    padding-top: 0;
+    h2 {
+      text-align: center;
+    }
+  }
 }
 
 .detailedHalf {
