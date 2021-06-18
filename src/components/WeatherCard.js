@@ -8,11 +8,11 @@ import Storm from '../assets/Storm.png'
 import ClearDay from '../assets/Clear-day.png'
 import ClearNight from '../assets/Clear-night.png'
 
-const WeatherCard = () => {
+const WeatherCard = ({ id, name, main, dt, weather, sys }) => {
 
-  const [weather, setWeather] = useState(null)
+  // const [weather, setWeather] = useState(null)
 
-  const [unixTime, setUnixTime] = useState('')
+  // const [unixTime, setUnixTime] = useState('')
 
   // const [errorMessage, setErrorMessage] = useState('')
 
@@ -23,52 +23,53 @@ const WeatherCard = () => {
   let weatherStatus = ''
 
 
-  const { id } = useParams()
+  const { id: weblinkId } = useParams()
 
   // const imageArray = [{ 'Clouds': Clouds }, { 'Clear': Clear }]
 
   // const { Clouds: Clouds}
 
-  useEffect(() => {
 
-    const getData = async () => {
-      try {
-        const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=${id}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
+  // useEffect(() => {
 
-        console.log(data)
-        console.log(data.list[0])
-        setWeather(data.list[0])
-        // if (!weather){
-        //   console.log('inside if')
-        //   window.alert('mae there is not such a city try again')
-        // } else {
-        setUnixTime(data.list[0].dt)
-        // }
+  //   const getData = async () => {
+  //     try {
+  //       const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=${weblinkId}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
 
-
-      } catch (err) {
-        console.log('ERR', err)
-        console.log('THIS IS CATCH')
-        setHasError(true)
-        // setErrorMessage(err.response.data.errors)
-      }
-    }
+  //       console.log(data)
+  //       console.log(data.list[0])
+  //       setWeather(data.list[0])
+  //       // if (!weather){
+  //       //   console.log('inside if')
+  //       //   window.alert('mae there is not such a city try again')
+  //       // } else {
+  //       setUnixTime(data.list[0].dt)
+  //       // }
 
 
-    getData()
+  //     } catch (err) {
+  //       console.log('ERR', err)
+  //       console.log('THIS IS CATCH')
+  //       setHasError(true)
+  //       // setErrorMessage(err.response.data.errors)
+  //     }
+  //   }
 
-  }, [id])
+
+  //   getData()
+
+  // }, [id])
 
   // console.log('WEATHER DESCRIPTION!!!', weather.weather[0].main)
 
 
-  console.log('IMAGE LINK', imageLink)
+  // console.log('IMAGE LINK', imageLink)
 
 
-  console.log('UNIXTIME', unixTime)
+  // console.log('UNIXTIME', unixTime)
 
   console.log('WEATHER', weather)
-  const unixDate = new Date(unixTime * 1000)
+  const unixDate = new Date(dt * 1000)
   const date = unixDate.toDateString()
   const time = unixDate.toLocaleTimeString([], { timeStyle: 'short' })
 
@@ -76,89 +77,97 @@ const WeatherCard = () => {
   console.log(unixDate.toLocaleTimeString([], { timeStyle: 'short' }))
 
   const logic = () => {
-    if (weather) {
-      weatherStatus = weather.weather[0].main
-      if (weather.weather[0].main === 'Clouds') {
+    if (name) {
+      weatherStatus = weather[0].main
+      if (weatherStatus === 'Clouds') {
         imageLink = Clouds
       }
-      if (weather.weather[0].main === 'Rain') {
+      if (weatherStatus === 'Rain') {
         imageLink = Rain
       }
-      if (weather.weather[0].main === 'Clear') {
+      if (weatherStatus === 'Clear') {
         if (parseInt(time) < 16 && parseInt(time) > 6) {
           imageLink = ClearDay
         } else {
           imageLink = ClearNight
         }
       }
-      if (weather.weather[0].main === 'Snow') {
+      if (weatherStatus === 'Snow') {
         imageLink = Snow
       }
-      if (weather.weather[0].main === 'Storm') {
+      if (weatherStatus === 'Storm') {
         imageLink = Storm
       }
       return imageLink
     }
   }
 
-  console.log('TIME', parseInt(time))
+  logic()
 
-  console.log(typeof (logic()))
+  // console.log('TIME', parseInt(time))
+
+  // console.log(typeof (logic()))
 
 
   return (
 
-    <section className={`section hero is-fullheight-with-navbar ${weatherStatus}`}>
-      <div className="container">
-        <div className="columns">
-          <div className="column is-one-third">
+    // <section className={`section hero is-fullheight-with-navbar ${weatherStatus}`}>
+    // <div className="container">
+    // <div className="columns">
+    // <div className="column is-one-third">
+    //   <div className="card">
+    <>
+      {/* {!weather ?
+
+          <Link to="/search"><h2 className=" has-text-centered errorBlock">
+            {hasError ? 'Oops, it looks like we do not have records for that city. Please click here to search again' : 'Loading...'}
+          </h2>
+          </Link>
+          : */}
+
+
+
+      <>
+
+        <div className=" column is-one-quarter-desktop is-one-third-tablet is-full-mobile">
+
+          <Link to={`/${id}/detail`}>
             <div className="card">
-              <>
-                {!weather ?
-
-                  <Link to="/search"><h2 className=" has-text-centered errorBlock">
-                    {hasError ? 'Oops, it looks like we do not have records for that city. Please click here to search again' : 'Loading...'}
-                  </h2>
-                  </Link>
-                  :
 
 
+              <div className="card-header">
+                <div className="card-header-title">
+                  {name}, {sys.country}</div>
+              </div>
 
-                  <>
+              <div className="card-content">
+                <h2>{date} {time}</h2>
+              </div>
 
-                    <Link to={`/${id}/detail`}>
-                      <div className="card-header">
-                        <div className="card-header-title">
-                          {weather.name}</div>
-                      </div>
+              <div className="card-image">
+                <figure className="image">
+                  <img src={imageLink} alt={imageLink} />
+                </figure>
+              </div>
 
-                      <div className="card-content">
-                        <h2>{date} {time}</h2>
-                      </div>
+              <div className="card-content">
+                <h2>{weather[0].description}</h2>
+              </div>
 
-                      <div className="card-image">
-                        <figure className="image">
-                          <img src={imageLink} alt="test" />
-                        </figure>
-                      </div>
-
-                      <div className="card-content">
-                        <h2>{weather.weather[0].main}</h2>
-                      </div>
-
-                      <div className="card-content">
-                        <h2>{Math.round(weather.main.temp)}ºC</h2>
-                      </div>
-                    </Link>
-
-                  </>
-                }
-              </>
+              <div className="card-content">
+                <h2>{Math.round(main.temp)}ºC</h2>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
-      </div>
-    </section >
+      </>
+      {/* } */}
+    </>
+    // </div>
+    // </div>
+    // </div>
+    // </div>
+    // </section >
 
   )
 
