@@ -38,6 +38,7 @@ a {
 
 .card {
 background-color: #cce6ff;
+object-fit: contain;
 }
 
 .hidden {
@@ -58,12 +59,14 @@ a {
 }
 
 .detailedPage {
-  .columns {
-    min-width: 30vw;
-  }
+  
   .column {
-  min-height: 50vh;
-  max-height: 80vh;
+    min-width: 30vw;
+    min-height: 50vh;
+    // max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .card-header-title {
     justify-content: center;
@@ -77,7 +80,15 @@ a {
   }
   .card-image {
     width: 80%;
+
+    .image.is-square, .image.is-1by1 {
+      margin: -20px 0;
+    }
   }
+}
+
+.container.card.detailedPage {
+  flex-grow: 0;
 }
 
 .detailedHalf {

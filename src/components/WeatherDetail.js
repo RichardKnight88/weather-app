@@ -68,14 +68,14 @@ const WeatherDetail = () => {
           }
         })
         setFilteredCity(grabCity)
-        console.log('GRAB CITY', grabCity)
+        // console.log('GRAB CITY', grabCity)
       }
 
     }
 
     filterCity()
 
-  }, [weather, hasError, weblinkId])
+  }, [weather, hasError, weblinkId, cityId])
 
 
   // console.log('FILTERED CITY', filteredCity)
