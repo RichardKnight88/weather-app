@@ -9,7 +9,7 @@ const CityIndex = () => {
 
   const [weather, setWeather] = useState([])
 
-  const [hasError, setHasError] = useState(false)
+  // const [hasError, setHasError] = useState(false)
 
   const { id } = useParams()
 
@@ -20,7 +20,7 @@ const CityIndex = () => {
 
     const getData = async () => {
       try {
-        const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=${id}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
+        const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/find?q=${id}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
 
         // console.log(data)
         // console.log(data.list)
@@ -28,9 +28,9 @@ const CityIndex = () => {
 
 
       } catch (err) {
-        // console.log('ERR', err)
+        console.log('ERR', err)
         // console.log('THIS IS CATCH')
-        setHasError(true)
+        // setHasError(true)
         // setErrorMessage(err.response.data.errors)
       }
     }

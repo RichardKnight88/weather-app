@@ -33,7 +33,7 @@ const WeatherDetail = () => {
 
     const getData = async () => {
       try {
-        const { data } = await axios.get(`http://api.openweathermap.org/data/2.5/find?q=${id}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
+        const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/find?q=${id}&units=metric&appid=${process.env.REACT_APP_API_ACCESS_TOKEN}`)
 
         // console.log('DATA', data)
 
@@ -191,7 +191,7 @@ const WeatherDetail = () => {
         </div>
 
       </section>
-      
+
     </>
 
   )

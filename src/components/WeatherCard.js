@@ -21,13 +21,13 @@ const WeatherCard = ({ id, name, main, dt, weather, sys }) => {
   const { id: weblinkId } = useParams()
 
 
-  console.log('WEATHER', weather)
+  // console.log('WEATHER', weather)
   const unixDate = new Date(dt * 1000)
   const date = unixDate.toDateString()
   const time = unixDate.toLocaleTimeString([], { timeStyle: 'short' })
 
-  console.log(unixDate.toDateString())
-  console.log(unixDate.toLocaleTimeString([], { timeStyle: 'short' }))
+  // console.log(unixDate.toDateString())
+  // console.log(unixDate.toLocaleTimeString([], { timeStyle: 'short' }))
 
   const logic = () => {
     if (name) {

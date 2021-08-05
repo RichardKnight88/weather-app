@@ -18,12 +18,12 @@ const Register = () => {
     setUserNameData(newUserNameData)
   }
 
-  console.log('USERNAME DATA', userNameData)
+  // console.log('USERNAME DATA', userNameData)
 
   const handleSubmit = (event) => {
     event.preventDefault()
     setUserNameToLocalStorage()
-    console.log('Submit works')
+    // console.log('Submit works')
   }
 
   const setUserNameToLocalStorage = () => {
