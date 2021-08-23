@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import Clouds from '../assets/Clouds.png'
-import Rain from '../assets/Rain.png'
-import Snow from '../assets/Snow.png'
-import Storm from '../assets/Storm.png'
-import ClearDay from '../assets/Clear-day.png'
 
 
 import axios from 'axios'
@@ -25,8 +20,6 @@ const WeatherDetail = () => {
 
   const cityId = parseInt(weblinkId)
 
-  let imageLink = ''
-  let weatherStatus = ''
 
 
   useEffect(() => {
@@ -78,32 +71,6 @@ const WeatherDetail = () => {
   }, [weather, hasError, weblinkId, cityId])
 
 
-  // console.log('FILTERED CITY', filteredCity)
-
-  const logic = () => {
-    if (filteredCity) {
-      weatherStatus = filteredCity[0].weather[0].main
-      if (weatherStatus === 'Clouds' || weatherStatus === 'Mist') {
-        imageLink = Clouds
-      }
-      if (weatherStatus === 'Rain') {
-        imageLink = Rain
-      }
-      if (weatherStatus === 'Clear') {
-        imageLink = ClearDay
-      }
-      if (weatherStatus === 'Snow') {
-        imageLink = Snow
-      }
-      if (weatherStatus === 'Storm') {
-        imageLink = Storm
-      }
-      return imageLink
-    }
-  }
-
-  logic()
-
 
   if (!filteredCity) return null
 
@@ -137,7 +104,7 @@ const WeatherDetail = () => {
 
                   <div className="card-image">
                     <figure className="image is-1by1">
-                      <img src={imageLink} alt={imageLink} />
+                      <img src={`/${filteredCity[0].weather[0].main}.png`} alt={`${filteredCity[0].weather[0].main} icon`} />
                     </figure>
                   </div>
 

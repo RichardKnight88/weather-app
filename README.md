@@ -1,20 +1,77 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) GA London React Template
+# World Weather App
+Software Engineering Immersive Course || Project-2 || Group Project - 2 Members || 2 days
 
-## Using NPM
+## Overview
 
-`yarn start` or `yarn dev`  to run the development server
+A weather app that consumes the OpenWeather API to display real-time weather information for cities across the globe.
+ 
+<p align="center" >
+ <img width="80%" src="./src/assets/homepage-screenshot.jpg" alt="World Weather App Screenshot"/>
+</p>
+ 
+[World Weather App - Deployed App](https://bit.ly/world-weather-app-rk)
 
-`yarn build` to create a build directory
+## Installation
 
-## Using Yarn
+- Clone the repo
+- Visit https://openweathermap.org/ and register.
+- Go to 'API keys' tab in profile and generate key.
+- Create a ```.env``` file and enter
+  ```
+  ESLINT_NO_DEV_ERRORS=true
+  REACT_APP_API_ACCESS_TOKEN='your unique key from API keys tab as a string'
+  ```
+- Install all frontend packages (from package.json) by running ```yarn```
+- Start server with ```yarn start```
+ 
+ 
+## Table of Contents
+[The Brief](#the-brief) <br>
+[The Build](#the-build) <br>
+[Wins](#wins) <br>
+[Challenges](#challenges) <br>
+[Bugs](#bugs) <br>
+[Future Improvements](#future-improvements) <br>
+[Key Learnings](#key-learnings) <br>
 
-`yarn start` or `yarn dev`  to run the development server
+ 
+ 
+## The Brief
+ 
+Using React, design an app that consumes a public API.
 
-`yarn build` to create a build directory
 
-### ⚠️
+<br>
+ 
+## The Build
 
-To prevent the `failed-to-compile` issue for linter errors like `no-unsed-vars`, rename the `.env.example` to `.env` and restart your development server. Note this will only change the behaviour of certain linter errors to now be warnings, and is added just to allow your code to compile in development. These errors should still be fixed and other errors will still result in the code being unable to compile
+After being paired our first task was to select a public API. I wanted to ensure the API we used had enough information to be interesting and could be visual. After testing a number of APIs we settled on Open Weather.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+After this we created a wireframe as a guideline on how our app would look and flow.
+
+
+
+
+<br>
+ 
+
+## Wins
+
+
+
+## Challenges
+
+
+
+
+## Bugs
+
+
+
+
+## Future Improvements
+
+
+
+## Key Learnings
 
