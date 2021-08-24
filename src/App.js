@@ -25,11 +25,11 @@ function App() {
           <WeatherDetail />
         </Route>
 
-        <Route excact path="/favourites">
+        <Route path="/favourites">
           <Favourites />
         </Route>
 
-        <Route excact path="/search">
+        <Route path="/search">
           <Searchbar />
         </Route>
 
